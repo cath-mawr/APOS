@@ -1,0 +1,338 @@
+-------------------
+Version 2.4.1
+
+Usability improvements to auth system
+
+-------------------
+Version 2.4
+
+<lots of data access stuff, too long to list, check the docs>
+void addFriend(String name)
+void removeFriend(String name)
+void addIgnore(String name)
+void removeIgnore(String name)
+int getFriendCount()
+String getFriendName(int i)
+boolean isFriend(String name)
+int getIgnoredCount()
+String getIgnoredName(int i)
+boolean isIgnored(String name)
+void useSlotOnObject(int slot, int x, int y)
+(primarily for legacy compatibility with other bots)
+boolean isAutoLogin()
+void setSkipLines(boolean flag)
+boolean isSkipLines()
+void setRendering(boolean flag)
+boolean isRendering()
+void setPaintOverlay(boolean flag)
+boolean isPaintOverlay()
+
+Many new included scripts
+The return of FOCR/Joker
+(Num3l is still default, but x86-32 FOCR may be more accurate because of
+rotation routines not present in Num3l).
+Smoother and faster CAPTCHA input (again)
+Unidentified herbs have the herb name in brackets
+Font fix for Linux (set bot.properties font= to Arial)
+javax.script support (only JavaScript atm)
+Exact fatigue/XP
+Made loading faster by storing content locally. The first time you start
+the bot it won't be any faster because it has to download the files first.
+Improved drawImage
+getPlayerName (spaces)
+getPlayerByName (spaces)
+Script reloading now grabs updated code
+New icon
+
+-------------------
+Version 2.3
+
+Console is now internal to the main frame 
+Improved performance when writing text to the console
+Slight UI improvements
+Num3l is now the default OCR
+The OCR type is now saved
+It now randomly picks world 2 or 3 on start-up instead of deafulting to
+world 2.
+Smoother and faster CAPTCHA input
+
+-------------------
+Version 2.2
+
+Checkboxes
+getObjectById fixed to retain backwards compatibility
+Fixed the display of buttons on X11 systems
+
+-------------------
+Version 2.1
+
+New features
+void takeScreenshot(String file)
+void followPlayer(int server_index)
+void useItemWithPlayer(int local_index, int slot)
+void drawCircleFill(int x, int y, int radius, int colour, int trans)
+void setPixel(int x, int y, int colour)
+void drawImage(Image image, int start_x, int start_y)
+
+Massive code clean up.
+System tray icon.
+Script selection UI.
+Improved built-in scripts.
+Improved logo (thanks blood).
+Fixed the bug on the account selection frame where the drop-down list
+would be too small.
+Icon (thanks Momentum Design Lab, it's part of their Matte set:
+http://momentumdesignlab.com/about/downloads/).
+
+-------------------
+Version 2.0
+
+New included scripts
+F3 - Certer
+F6 - Catherby
+F7 - Thieving
+F8 - Magic
+
+New features
+boolean canCastSpell(int spell) (and many other data-related things,
+see the docs)
+void disableKeys()
+void onKeyPress(int keycode)
+void onServerMessage(String str)
+void onTradeRequest(String name)
+void onChatMessage(String msg, String name, boolean mod, boolean admin)
+void onPrivateMessage(String msg, String name, boolean mod, boolean admin)
+void sendPrivateMessage(String msg, String name)
+Note: you can send public chat messages using
+void setTypeLine(String str)
+and boolean next().
+This method has been present since 1.4.
+(just moved these)
+void declineTrade()
+int getTheirTradedItemCount()
+
+Modified the auth screen slightly.
+Camera height is no longer modified when under roofs.
+Fog of war is now incremented/decremented with the camera height.
+
+The camera can now be controlled with the following keys:
+	Page Up moves it away from your player northwards.
+	Page Down moves it away from your player southwards.
+	Home moves it away from your player eastwards.
+	End moves it away from your player westwards.
+	Up zooms out, as always.
+	Down zooms in, as always. Don't zoom in too far or the game crashes.
+	Escape resets it.
+
+Removed the random minimap/camera rotation, just because. 
+
+-------------------
+Version 1.9
+
+New features
+boolean isSkilling()
+boolean isWalking()
+boolean isPlayerWalking(int local_index)
+int getPlayerDirection(int local_index)
+void paint() (new listener thing!)
+void drawHLine(int x, int y, int length, int colour)
+void drawVLine(int x, int y, int length, int colour)
+void drawString(String str, int x, int y, int size, int colour)
+void drawBoxFill(int x, int y, int width, int height, int colour)
+void drawBoxOutline(int x, int y, int width, int height, int colour)
+void drawBoxAlphaFill(int x, int y, int width, int height, int trans,
+int colour)
+void writeLine(String str)
+
+Fixed
+isItemAt(int id, int x, int y)
+getPlayerByName(String name)
+You can now toggle the paint while a script is running
+
+Cleaned up lots of stuff
+
+-------------------
+Version 1.8
+
+Removed features
+The internal cross platform OCR because nobody used it.
+
+New features
+void useItemOnObject(int item_id, int object_x, int object_y)
+[why was this removed?]
+void sendTradeRequest(int pid)
+The auth screen from <1.5 [why was this removed?]
+PaintListener
+Graphics toggle
+Screenshot thing
+
+Fixes
+Splash screen rewrite to fix null bug
+int bankCount(int id)
+boolean isReachable(int x, int y) [thanks CamHart]
+Modified a fresh client, fixed the UID, fixed the logout timer and
+re-added all the hooks
+to fix RLN's logout bug
+--------------------
+Version 1.7
+
+New features
+void enablePrayer(int id)
+void disablePrayer(int id)
+boolean isPrayerEnabled(int id)
+int getShopItemById(int id)
+boolean isShopOpen()
+int getShopItemAmount(int slot)
+void buyShopItem(int slot, int amount)
+void sellShopItem(int slot, int amount)
+void closeShop()
+boolean isInTradeOffer()
+boolean isInTradeConfirm()
+void offerItemTrade(int slot, int amount)
+boolean hasOtherTraded(int item_id, int amount)
+int getOurTradedItemCount()
+void acceptTrade()
+void confirmTrade()
+void useItemOnWallObject(int slot, int x, int y)
+Parameter parsing
+
+Fixes
+Id Debugger
+--------------------
+Version 1.6
+
+Updated to the latest client
+
+New Features
+Id Debugger
+--------------------
+Version 1.5
+
+Updated to the latest client (?)
+--------------------
+Version 1.4
+
+New Features
+void setTypeLine("text here") - text to be typed onto the client
+boolean next() - will type next character of type line and hit enter for
+you at the end - returns false until finished typing line
+F2 = Autofighter (nade's script)
+F3 = Draynor Certer/Uncert (mofo's script)
+F4 = Stouts (buy)
+F5 = Stouts (train)
+F12 = Reload scripts
+--------------------
+Version 1.25
+
+mad bug fixes.
+--------------------
+Version 1.24
+
+New Features
+void getPlayerByPid(int pid)
+
+Fixes
+getNpcByIdNotTalk(int... id)
+void castOnItem(spellID, pos)
+boolean isWearingItem(id)
+void wearItem(int pos)
+--------------------
+Version 1.24
+
+New Features
+void castOnItem(spellID, pos)
+boolean isWearingItem(id)
+void wearItem(int pos)
+void setTrickMode(boolean on)
+
+Fixes
+fixed all the issues with NPCs
+fixed all the issues with PVP
+loads of other bug fixes/trap removals
+--------------------
+Version 1.2
+
+New Features
+Now shows coords and pid in your options menu
+void magePlayer(int playeridx, int spellID)
+void attackPlayer(int playeridx)
+int[] getPlayerByName(String name) - finds a players index, x, y
+int countPlayers() - returns the amount of players in
+the area (including yourself)
+void castOnSelf(spellID)
+void castOnGroundItem(spellID, x, y, groundIndex)
+
+Fixes
+Upgrade to the internal OCR
+Various bug fixes.
+--------------------
+Version 1.18
+
+New Features
+void mageNpc(int spellID, int npcIDx)
+(more were added, just not 100% sure)
+(we will soon have fully commented java docs for you
+script developers to look at)
+
+Fixes
+loads of bug fixes
+if you still have some bugs let us know, we want to get all the
+bugs out of the
+way before we add everything else and jump in to mass scripting mode!
+--------------------
+Version 1.17
+
+New Features
+void useItemOnGroundItem(int itemID, int groundItemID)
+void useItemOnGroundItem(int pos, int x, int y, int groundItemIndex)
+boolean isItemAt(int x, int y, int id)
+boolean isObjectAt(int x, iny y)
+void pickupItem(int id, int x, int y)
+void pickupItem(int x, int y)
+void pickupItemById(int... id)
+int[] getItemById(int... id)
+
+Client features added:
+Right click options -
+right click player -> view pid
+right click ground item -> view id
+right click object -> view id
+right click wall object -> veiw id
+right click inventory item -> view id
+shows pid in options menu
+
+Fixes
+int[] getNpcInRadius(int id, int startX, int startY, int radius)
+int[] getNpcInExtendedRadius(int id, int startX, int startY, int xd, int yd)
+int[] getNpcById(int... id)
+int[] getNpcByIdNotTalk(int... id)
+--------------------
+Version 1.16
+
+New Features
+void useItemOnObject(int itemId, int objectId)
+void useItemOnObject(int itemIdx, int x, int y)
+void useItemWithItem(int idx1, int idx2)
+int[] BANKERS
+int[] BONES
+String[] SPELLS
+
+Fixes
+getHpPercent() fixed
+--------------------
+Version 1.15
+
+New Features
+mageNpc(int npcIndex, int spellID)
+dropItem(int idx)
+Stout buyer/trainer (will be posted in script section)
+
+Fixes
+Banking fixed
+atObject and atObject2 fixed
+atWallObject and atWallObject2 fixed
+talking to npcs is fixed
+applet sizing issue fixed
+current/max level bug fixed
+getHpPercent() fixed
+getItemIndex renamed to getInventoryIndex

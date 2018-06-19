@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<project name="APOS" default="run">
+	<target name="compile">
+		<mkdir dir="bin" />
+		<javac srcdir="src" destdir="bin" debug="true"
+		    source="1.7" target="1.7"
+		    classpath="lib/rsclassic.jar" />
+	</target>
+	<target name="jar" depends="compile">
+		<jar basedir="bin" destfile="bot.jar"
+		    manifest="MANIFEST.MF" />
+	</target>
+	<target name="run" depends="jar">
+		<java classpath="bot.jar:lib/rsclassic.jar"
+		    fork="true" classname="ClientInit" dir="." />
+	</target>
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+</project>
