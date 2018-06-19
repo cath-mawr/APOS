@@ -13,14 +13,14 @@ essential components like PathWalker.
 Keyboard stuff
 --------------
 
-PageUp - Moves the camera away from your player northwards.
-PageDown - Moves the camera away from your player southwards.
-Home - Moves the camera away from your player eastwards.
-End - Moves the camera away from your player westwards.
-Up - Zooms the camera in.
-Down - Zooms the camera out.
-Escape - Resets the camera.
-F12 - Takes a screenshot, saves it to the Screenshots directory.
+* PageUp - Moves the camera away from your player northwards.
+* PageDown - Moves the camera away from your player southwards.
+* Home - Moves the camera away from your player eastwards.
+* End - Moves the camera away from your player westwards.
+* Up - Zooms the camera in.
+* Down - Zooms the camera out.
+* Escape - Resets the camera.
+* F12 - Takes a screenshot, saves it to the Screenshots directory.
 
 Using custom fonts
 ------------------
